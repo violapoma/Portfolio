@@ -1,0 +1,36 @@
+{
+  "nav": {
+    "home": "HOME",
+    "projects": "PROJECTS",
+    "about": "ABOUT ME",
+    "contacts": "CONTACTS",
+    "title": "VIOLA POMA"
+  },
+  "home": {
+    "title": "Hi, I'm Viola",
+    "description": "I'm a Full Stack Web Developer"
+  },
+  "contacts": {
+    "social": "Look me up on",
+    "cv": "Download my CV",
+    "email": {
+      "title": "Send me an email",
+      "fields": {
+        "name": "Your full name",
+        "email": "Your email",
+        "message": "Your message",
+        "invalid": "This email is not valid."
+      },
+      "submit": "Send",
+      "terms": {
+        "label": "I agree to be contacted back using the information provided in this form.",
+        "feedback": "Consent is required to submit the form!"
+      },
+      "status": {
+        "ok": "Grazie per avermi contattata, a presto!",
+        "nok": "C'è stato un errore durante l'invio della mail"
+      }
+    },
+    "between": "OR"
+  }
+}

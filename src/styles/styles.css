@@ -1,0 +1,135 @@
+/*  TOC:  
+ *  SERVICE
+ *  BOOTSTRAP DISABLE
+ *  HOME
+ *  CONTACTS
+ */
+
+:root{
+  --main-bg-color: #190019;
+  --text-main-color: #dfb6b2;
+  --text-dark-color: #2B124C; 
+  --main-emph-text-color: #FBE4D8;
+  --contacts-first-bg: #2B124C;
+  --contacts-second-bg: #522B5B; 
+  --contacts-third-bg: #FBE4D8;
+
+}
+body {
+  color: var(--text-main-color);
+  background-color: var(--main-bg-color);
+}
+a {
+  color: var(--text-main-color);
+  text-decoration: none;
+}
+a:hover{
+  text-decoration: underline;
+  color: var(--main-emph-text-color);
+}
+h1{
+  line-height: 2em;
+}
+
+/* SERVICE */
+.borderSHOW {
+  border: 1px solid purple;
+}
+.noResize {
+  resize: none;
+}
+.cursorPointer{
+  cursor: pointer;
+}
+.fsBig{
+  font-size: 6rem;
+}
+.fsMedium{
+  font-size: 4rem; 
+}
+label {
+  color: var(--text-dark-color);
+}
+
+/* BOOTSTRAP DISABLE*/
+.navbar-brand, .navbar-brand:hover {
+  color: unset;
+}
+.form-select{
+  width: 10%;
+  color: unset;
+  background-color: unset;
+}
+
+/* HOME */
+.typewriter {
+  font-family: monospace;
+  white-space: pre-line;
+}
+.cursor {
+  display: inline-block;
+  margin-left: 2px;
+  animation: blink 1s infinite;
+}
+@keyframes blink {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+.emoji {
+  display: inline-block;
+  margin-left: 0.25rem;
+}
+.wave {
+  animation: wave 1.5s infinite;
+  transform-origin: 70% 70%;
+}
+
+@keyframes wave {
+  0%   { transform: rotate(0deg); }
+  10%  { transform: rotate(14deg); }
+  20%  { transform: rotate(-8deg); }
+  30%  { transform: rotate(14deg); }
+  40%  { transform: rotate(-4deg); }
+  50%  { transform: rotate(10deg); }
+  60%  { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+
+/* CONTACTS */
+.contacts-grid {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr); /* 3 righe  */
+  grid-template-columns: repeat(2, 1fr); /* 2 colonne  */
+  height: 90vh; 
+  width: 90%;
+  margin: auto;
+  gap: 1rem; 
+}
+
+.contacts-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+
