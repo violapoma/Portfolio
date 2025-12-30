@@ -1,10 +1,9 @@
-import { useTranslation } from "react-i18next";
-
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./components/layout/Header";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import Contacts from "./pages/Contacts";
+import AboutMe from "./pages/AboutMe";
 
 function App() {
 
@@ -12,8 +11,9 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route element={<Home />} path="/" />
-        <Route element={<Contacts />} path="/contacts" />
+        <Route path="/" element={<Home />} />
+        <Route path="/about-me" element={<AboutMe />} />
+        <Route path="/contacts" element={<Contacts />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

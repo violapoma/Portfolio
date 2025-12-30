@@ -1,12 +1,13 @@
 /*  TOC:  
  *  SERVICE
  *  BOOTSTRAP DISABLE
+ *  HEADER
  *  HOME
  *  CONTACTS
  */
 
 :root{
-  --main-bg-color: #190019;
+  --main-bg-color: #190019; 
   --text-main-color: #dfb6b2;
   --text-dark-color: #2B124C; 
   --main-emph-text-color: #FBE4D8;
@@ -17,7 +18,7 @@
 }
 body {
   color: var(--text-main-color);
-  background-color: var(--main-bg-color);
+  background-color: var(--main-bg-color) !important;
 }
 a {
   color: var(--text-main-color);
@@ -49,6 +50,10 @@ h1{
 }
 label {
   color: var(--text-dark-color);
+}
+
+.cursor-home{
+  cursor: url('./cursors/house.svg') 12 12, pointer;
 }
 
 /* BOOTSTRAP DISABLE*/
@@ -112,6 +117,7 @@ label {
   100% { transform: scale(1); }
 }
 
+/* HEADER */
 
 /* CONTACTS */
 .contacts-grid {
