@@ -9,7 +9,8 @@ function Header() {
   return (
     <Navbar expand="lg">
       <Container
-        className="d-flex align-items-center justify-content-between"
+        className="d-flex align-items-center justify-content-between "
+        style={{height: '6em'}}
       >
         <Navbar.Brand>
           {/* TODO: FAI UN LOGO CARINO CON CANVA MAGARI */}
@@ -21,7 +22,7 @@ function Header() {
           id="responsive-navbar-nav"
           className="d-lg-flex mx-5 justify-content-lg-between flex-grow-1 "
         >
-          <NavLink to="/" className='nav-link-with-icon'>
+          <NavLink to="/" className='nav-link-with-icon '>
             {t("nav.home")}
           </NavLink>
           <NavLink to={"/projects"}>{t("nav.projects")}</NavLink>
