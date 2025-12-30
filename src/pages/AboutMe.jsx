@@ -1,5 +1,79 @@
-function AboutMe() {
+import { motion } from "framer-motion";
+import { Col, Row } from "react-bootstrap";
+import { Trans, useTranslation } from "react-i18next";
 
+function AboutMe() {
+  const { t } = useTranslation();
+  const skills = {
+    "Front End": ["React", "JavaScript", "HTML", "CSS"],
+    "Back End": ["Node.js", "Express.js", "RESTful APIs"],
+    "UI": ["Bootstrap"],
+    "Libraries": ["i18next"],
+    "Database": ["MongoDB"]
+  };
+
+  console.log("skills", skills);
+  return (
+    <motion.div
+      className="content aboutBg d-flex"
+      initial={{ y: -50, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ type: "spring", stiffness: 100, damping: 10 }}
+    >
+      <Row className="m-5 px-5">
+        <Col className="">
+          <h2 className="mb-5 bree-serif-regular glow text-white fs-1">{t("about.education.title")}</h2>
+          <p className="fs-5">
+            {" "}
+            <Trans
+              i18nKey="about.education.university"
+              components={{ strong: <strong /> }}
+            />
+          </p>
+          <p className="fs-5 pt-5 text-center">
+            {" "}
+            <Trans
+              i18nKey="about.education.EPICODE"
+              components={{ strong: <strong /> }}
+            />
+          </p>
+          <p className="fs-5 pt-5 text-end">
+            {" "}
+            <Trans
+              i18nKey="about.education.WIP"
+              components={{ strong: <strong /> }}
+            />
+          </p>
+        </Col>
+        <Col className="d-flex align-items-end justify-content-end">
+          <div className="tech-skills-container ">
+            {Object.entries(skills).map(([key, value], index, array) => {
+              const isBig = index === 0 || index === 3;
+              const isXXL = index===4;
+              let skillWidth; 
+              if (index === 0 || index === 3) skillWidth = 'skill-wide';
+              else if(index === 4) skillWidth = 'skill-xxl';
+              else skillWidth = 'skill-small'; 
+              // const skillWidth =
+              //   isBig ? "skill-wide" : "skill-small";
+              const skillAlign = index%2===0 && 'text-end';
+              const bg = `skill-bg-${index}`;
+              return (
+                <div key={key} className={`tech-skills-item ${skillWidth} ${skillAlign} ${bg}`}>
+                  <h3 className="fs-2 bree-serif-regular">{key}</h3>
+                  <ul className={`custom-list ${index===4 && 'd-flex align-items-center'}`}>
+                    {value.map((skill) => (
+                      <li key={skill} className={`fs-4 `}>{skill}</li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })}
+          </div>
+        </Col>
+      </Row>
+    </motion.div>
+  );
 }
 
-export default AboutMe; 
+export default AboutMe;

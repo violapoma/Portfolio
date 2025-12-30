@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useTypewriter } from "../hooks/useTypewriter";
+import { Container } from "react-bootstrap";
 
 function Home() {
   const { t, i18n } = useTranslation();
@@ -29,32 +30,34 @@ function Home() {
   const titleDone = displayedLines[0]?.length === title.length;
 
   return (
-    <h1 className="typewriter fsBig m-5">
-      {animate ? (
-        <>
-          {/* Prima riga */}
-          {displayedLines[0]}
-          {titleDone && <span className="mx-5 emoji wave"> 👋</span>}
+    <div className="content homeBg">
+      <h1 className="typewriter fsBig ">
+        {animate ? (
+          <>
+            {/* Prima riga */}
+            {displayedLines[0]}
+            {titleDone && <span className="mx-5 emoji wave"> 👋</span>}
 
-          {/* Seconda riga */}
-          {displayedLines.length > 1 && (
-            <>
-              <br />
-              {displayedLines[1]}
-              {isDone && <span className="mx-5 emoji pulse"> 💻</span>}
-            </>
-          )}
-        </>
-      ) : (
-        <>
-          {title} <span className="mx-5 emoji wave">👋</span>
-          <br />
-          {description} <span className="mx-5 emoji pulse">💻</span>
-        </>
-      )}
+            {/* Seconda riga */}
+            {displayedLines.length > 1 && (
+              <>
+                <br />
+                {displayedLines[1]}
+                {isDone && <span className="mx-5 emoji pulse"> 💻</span>}
+              </>
+            )}
+          </>
+        ) : (
+          <>
+            {title} <span className="mx-5 emoji wave">👋</span>
+            <br />
+            {description} <span className="mx-5 emoji pulse">💻</span>
+          </>
+        )}
 
-      {animate && !isDone && <span className="cursor">|</span>}
-    </h1>
+        {animate && !isDone && <span className="cursor">|</span>}
+      </h1>
+    </div>
   );
 }
 

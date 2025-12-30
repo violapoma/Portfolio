@@ -10,7 +10,6 @@ function Header() {
     <Navbar expand="lg">
       <Container
         className="d-flex align-items-center justify-content-between "
-        style={{height: '6em'}}
       >
         <Navbar.Brand>
           {/* TODO: FAI UN LOGO CARINO CON CANVA MAGARI */}

@@ -10,6 +10,14 @@
     "title": "Hi, I'm Viola",
     "description": "I'm a Full Stack Web Developer"
   },
+  "about": {
+    "education": {
+      "title": "Education",
+      "university": "I started programming at university, studying <strong>C++</strong>, <strong>Java</strong>, and <strong>PostgreSQL</strong>, while using Linux as my operating system; naturally, I also learned some <strong>bash</strong>.\nIn addition, I studied algorithms and data structures.",
+      "EPICODE": "At the beginning of 2025, I discovered EPICODE's Web Developer master, a <strong>six-month full-immersion program</strong> with live lessons covering both theory and practice.\nEach module included individual real-world projects, and at the end of each one we also had the opportunity to work in groups on additional projects, allowing us to develop our <strong>teamwork</strong> skills.",
+      "WIP": "I am currently studying other languages,\nsuch as PHP and SQL.\nI would also like to learn\nAngular and Figma."
+    }
+  },
   "contacts": {
     "social": "Look me up on",
     "cv": "Download my CV",
