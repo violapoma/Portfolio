@@ -7,7 +7,7 @@ function DownloadBox() {
 
   return (
     <Container
-      className="cursorPointer text-center"
+      className="cursorPointer text-center bree-serif-regular"
       onClick={() => {
         const link = document.createElement("a");
         link.href = "/public/CV_PomaViola.pdf";
@@ -15,7 +15,7 @@ function DownloadBox() {
         link.click();
       }}
     >
-      <h2 className="fsMedium">{t("contacts.cv")}</h2>
+      <h2 className="fs-1">{t("contacts.cv")}</h2>
       <motion.div
         animate={{ y: [0, -5, 0, 5, 0] }}
         transition={{ repeat: Infinity, duration: 1.5 }}

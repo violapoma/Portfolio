@@ -20,7 +20,7 @@ function SocialBox() {
   const { t } = useTranslation();
 
   return (
-    <Container>
+    <Container className="bree-serif-regular">
       <Row className="g-5">
         <Col xs={6} className="d-flex align-items-center justify-content-end">
           <h2>{t("contacts.social")}</h2>

@@ -1,6 +1,7 @@
 /*  TOC:  
  *  SERVICE
  *  BOOTSTRAP DISABLE
+ *  FONTS 
  *  HEADER
  *  HOME
  *  ABOUT
@@ -50,17 +51,22 @@ p {
   cursor: pointer;
 }
 .fsBig {
-  font-size: 6rem;
+  font-size: 5rem;
 }
 .fsMedium {
   font-size: 4rem;
 }
 .content {
-  height: 90vh;
+  height: 94vh;
   width: 100vw;
   background-size: cover;
   overflow: hidden;
 }
+.glow{
+  text-shadow: 0 0 10px var(--text-main-color);
+}
+
+/* FONTS */
 .bree-serif-regular {
   font-family: "Bree Serif", serif;
   font-weight: 400;
@@ -72,8 +78,10 @@ p {
   font-weight: 400;
   font-style: normal;
 }
-.glow{
-  text-shadow: 0 0 10px var(--text-main-color);
+.borel-regular {
+  font-family: "Borel", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 
 /* BOOTSTRAP DISABLE*/
@@ -99,8 +107,10 @@ p {
 }
 .cursor {
   display: inline-block;
-  margin-left: 2px;
-  animation: blink 1s infinite;
+  margin-left: 0.15em;
+  opacity: 0;
+  animation: blink 1s step-end infinite;
+  animation-fill-mode: forwards;
 }
 @keyframes blink {
   0%,
@@ -119,6 +129,7 @@ p {
 }
 .wave {
   animation: wave 1.5s infinite;
+  animation-fill-mode: forwards;
   transform-origin: 70% 70%;
 }
 
@@ -319,17 +330,19 @@ ul.custom-list {
   }
 }
 /* CONTACTS */
+.contactsBg{
+  background-image: url('backgrounds/contacts.png');
+}
 .contacts-grid {
   display: grid;
   box-sizing: border-box;
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: 12em 12em 25em;
   grid-template-columns: repeat(2, 1fr);
   height: 90vh;
-  width: 90%;
   margin: auto;
-  gap: 0.5em;
-  padding: 0.5em;
-  overflow: scroll;
+  gap: 1em;
+  padding: 2em
+  
 }
 
 .contacts-box {

@@ -8,7 +8,7 @@
   },
   "home": {
     "title": "Ciao, mi chiamo Viola",
-    "description": "Sono una Full Stack Web Developer"
+    "description": "Sono una Full Stack \nWeb Developer"
   },
   "about": {
     "education": {
@@ -39,6 +39,6 @@
         "nok": "C'è stato un errore durante l'invio della mail"
       }
     },
-    "between": "OPPURE"
+    "between": "oppure"
   }
 }

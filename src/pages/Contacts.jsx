@@ -23,7 +23,7 @@ function Contacts() {
   ];
 
   return (
-    <div className="contacts-grid">
+    <div className="content contacts-grid contactsBg">
       {boxes.map((box, index) => {
         const isInteractiveForm = box.id === 5;
 

@@ -1,62 +1,121 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { useTypewriter } from "../hooks/useTypewriter";
-import { Container } from "react-bootstrap";
+import { motion } from "framer-motion";
 
 function Home() {
   const { t, i18n } = useTranslation();
 
-  const [fullText, setFullText] = useState("");
-  const [animate, setAnimate] = useState(false);
+  const STAGGER = 0.05;
+  const LETTER_DURATION = 0.1;
+  const text = t("home.title") + t("home.desctiption");
 
-  const title = t("home.title");
-  const description = t("home.description");
+  const typingDuration = text.length * STAGGER + LETTER_DURATION + 1;
+  const firstlineDuration = t("home.title").length * STAGGER + LETTER_DURATION;
 
-  useEffect(() => {
-    setFullText(`${t("home.title")}\n${t("home.description")}`);
-  }, [i18n.language, title, description]);
+  const textContainer = {
+    hidden: { opacity: 1 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: STAGGER,
+      },
+    },
+  };
+  const letter = {
+    hidden: {
+      opacity: 0,
+      y: `0em`,
+    },
+    visible: {
+      opacity: 1,
+      y: `0em`,
+      transition: {
+        duration: LETTER_DURATION,
+        ease: "easeOut",
+      },
+    },
+  };
 
   useEffect(() => {
     const visited = sessionStorage.getItem("homeVisited");
     if (!visited) {
-      setAnimate(true);
       sessionStorage.setItem("homeVisited", "true");
     }
   }, []);
 
-  const { displayedText, isDone } = useTypewriter(fullText, 60, animate);
-
-  const displayedLines = displayedText.split("\n");
-  const titleDone = displayedLines[0]?.length === title.length;
-
   return (
-    <div className="content homeBg">
-      <h1 className="typewriter fsBig ">
-        {animate ? (
-          <>
-            {/* Prima riga */}
-            {displayedLines[0]}
-            {titleDone && <span className="mx-5 emoji wave"> 👋</span>}
+    <div className="content homeBg ">
+      <motion.div
+        variants={textContainer}
+        initial="hidden"
+        animate="visible"
+        style={{ display: "inline-block", margin: "8em" }}
+      >
+        <div style={{ display: "block" }}>
+          {t("home.title")
+            .split("")
+            .map((char, i) => (
+              <motion.span
+                key={`title-${i}`}
+                variants={letter}
+                style={{
+                  display: "inline-block",
+                  whiteSpace: "pre",
+                  fontSize: "3em",
+                }}
+              >
+                {char}
+              </motion.span>
+            ))}
+          <motion.span
+            className="mx-5 emoji"
+            initial={{ opacity: 0, rotate: 0 }}
+            animate={{
+              opacity: 1,
+              rotate: [0, 14, -8, 14, -4, 0],
+            }}
+            transition={{
+              opacity: { delay: firstlineDuration },
+              rotate: {
+                delay: firstlineDuration,
+                duration: 1.2,
+                repeat: Infinity,
+                ease: "easeInOut",
+              },
+            }}
+            style={{ fontSize: "3em", display: "inline-block" }}
+          >
+            👋
+          </motion.span>
+        </div>
 
-            {/* Seconda riga */}
-            {displayedLines.length > 1 && (
-              <>
-                <br />
-                {displayedLines[1]}
-                {isDone && <span className="mx-5 emoji pulse"> 💻</span>}
-              </>
-            )}
-          </>
-        ) : (
-          <>
-            {title} <span className="mx-5 emoji wave">👋</span>
-            <br />
-            {description} <span className="mx-5 emoji pulse">💻</span>
-          </>
-        )}
+        <div style={{ display: "inline-flex", alignItems: "baseline" }}>
+          {t("home.description")
+            .split("")
+            .map((char, i) => (
+              <motion.span
+                key={`desc-${i}`}
+                variants={letter}
+                style={{
+                  display: "inline-block",
+                  whiteSpace: "pre",
+                  fontSize: "6em",
+                }}
+              >
+                {char}
+              </motion.span>
+            ))}
 
-        {animate && !isDone && <span className="cursor">|</span>}
-      </h1>
+          <span
+            className="cursor fsBig"
+            style={{
+              animationDelay: `${typingDuration}s`,
+            }}
+          >
+            _
+          </span>
+        </div>
+      </motion.div>
     </div>
   );
 }
